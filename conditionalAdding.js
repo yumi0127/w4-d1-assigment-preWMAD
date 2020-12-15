@@ -6,22 +6,22 @@ const conditionalAdding = function (values, condition) {
 
   let num = 0;
 
+  if (values.length === 0) {
+    num = "improper input";
+  }
+
   for (i = 0; i < values.length; i++) {
     if (values[i] % 2 === 0 && condition === "even") {
       num = num + values[i];
     } else if (values[i] % 2 !== 0 && condition === "even") {
       num = num;
-    } else if (values[i] % 2 !== 0 && condition === "odd") {
-      num = num + values[i];
     } else if (values[i] % 2 === 0 && condition === "odd") {
       num = num;
-    } else if (values.length === 0) {
-      num = "improper input";
+    } else if (values[i] % 2 !== 0 && condition === "odd") {
+      num = num + values[i];
     }
   }
   return num;
-
-  //console.log(values.length);
 };
 
 console.log(conditionalAdding([1, 2, 3, 4, 5], "even"));
